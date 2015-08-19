@@ -13,7 +13,7 @@ module OmniAuth
         super
       end
 
-      uid{ raw_info['feed']['entry']['content']['properties']['UserID']['__content__'] }
+      uid { raw_info['feed']['entry']['content']['properties']['UserID']['__content__'] }
 
       info do
         {

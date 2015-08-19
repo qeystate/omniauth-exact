@@ -5,15 +5,15 @@ module OmniAuth
     class ExactOnlineUK < OmniAuth::Strategies::OAuth2
       option :client_options, {
         site: 'https://start.exactonline.co.uk',
-        authorize_url: 'https://start.exactonline.co.uk/api/oauth2/auth',
-        token_url: 'https://start.exactonline.co.uk/api/oauth2/token'
+        authorize_url: '/api/oauth2/auth',
+        token_url: '/api/oauth2/token'
       }
 
       def request_phase
         super
       end
 
-      uid{ raw_info['feed']['entry']['content']['properties']['UserID']['__content__'] }
+      uid { raw_info['feed']['entry']['content']['properties']['UserID']['__content__'] }
 
       info do
         {

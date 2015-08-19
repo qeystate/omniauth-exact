@@ -2,18 +2,18 @@ require 'omniauth-oauth2'
 
 module OmniAuth
   module Strategies
-    class Exact < OmniAuth::Strategies::OAuth2
+    class ExactOnlineUK < OmniAuth::Strategies::OAuth2
       option :client_options, {
-        site: 'https://start.exactonline.nl',
-        authorize_url: 'https://start.exactonline.nl/api/oauth2/auth',
-        token_url: 'https://start.exactonline.nl/api/oauth2/token'
+        site: 'https://start.exactonline.co.uk',
+        authorize_url: '/api/oauth2/auth',
+        token_url: '/api/oauth2/token'
       }
 
       def request_phase
         super
       end
 
-      uid{ raw_info['feed']['entry']['content']['properties']['UserID']['__content__'] }
+      uid { raw_info['feed']['entry']['content']['properties']['UserID']['__content__'] }
 
       info do
         {
